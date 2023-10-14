@@ -2,7 +2,7 @@ package model.entities;
 
 //region IMPORTS
 
-import model.exception.DomainException;
+//import model.exception.DomainException;
 
 //endregion
 
@@ -21,7 +21,12 @@ public class Imoveis {
     public Imoveis(){
 
     }
-
+    //Caso não tenha Meses de atraso
+    public Imoveis(String nomeDoProprietario, Double imposto) {
+        this.nomeDoProprietario = nomeDoProprietario;
+        this.imposto = imposto;
+    }
+    //Caso tenha
     public Imoveis(String nomeDoProprietario, Double imposto, Integer mesesDeAtraso) {
         this.nomeDoProprietario = nomeDoProprietario;
         this.imposto = imposto;
@@ -64,6 +69,7 @@ public class Imoveis {
 
         double percentualMulta;
 
+
         //Se houver atraso checando o percentual Multa da multa
         if (mesesDeAtraso < 6)
         {
@@ -93,9 +99,25 @@ public class Imoveis {
         }
 
         //Imposto com multa
-        imposto += (imposto * percentualMulta);
+         imposto+= (imposto * percentualMulta);
 
         return imposto;
+    }
+
+    @Override
+    public String toString() {
+       if(mesesDeAtraso != null){
+           return
+                   "Nome Do Proprietario:'" + nomeDoProprietario + '\'' +
+                           ", Imposto:" + calcularMulta() +
+                           ", Meses De Atraso:" + mesesDeAtraso;
+       }
+       else
+       {
+           return
+                   "Nome Do Proprietario:'" + nomeDoProprietario + '\'' +
+                           ", Imposto:" + imposto;
+       }
     }
 
 
