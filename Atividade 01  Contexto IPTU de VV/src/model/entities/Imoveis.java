@@ -69,7 +69,6 @@ public class Imoveis {
 
         double percentualMulta;
 
-
         //Se houver atraso checando o percentual Multa da multa
         if (mesesDeAtraso < 6)
         {
@@ -98,28 +97,29 @@ public class Imoveis {
             return imposto;
         }
 
-        //Imposto com multa
-         imposto+= (imposto * percentualMulta);
-
-        return imposto;
+        //Calculando e retornando o valor da multa
+        return (imposto * percentualMulta);
     }
 
+    //Subscrevendo Método to string
+    //meu Tostring personalizado
     @Override
     public String toString() {
+        //Se tem atraso...
        if(mesesDeAtraso != null){
            return
-                   "Nome Do Proprietario:'" + nomeDoProprietario + '\'' +
-                           ", Imposto:" + calcularMulta() +
-                           ", Meses De Atraso:" + mesesDeAtraso;
+                   "Nome Do Proprietário: " + nomeDoProprietario + "\n" +
+                           "Imposto: R$" + imposto + "\n" +
+                           "Multa: R$" + calcularMulta() + "\n"+
+                           "Meses De Atraso: " + mesesDeAtraso + "\n";
        }
-       else
+       else//Senão
        {
            return
-                   "Nome Do Proprietario:'" + nomeDoProprietario + '\'' +
-                           ", Imposto:" + imposto;
+                   "Nome Do Proprietário: " + nomeDoProprietario + "\n"+
+                           "Imposto: R$" + imposto+"\n";
        }
     }
-
 
     //endregion
 }
