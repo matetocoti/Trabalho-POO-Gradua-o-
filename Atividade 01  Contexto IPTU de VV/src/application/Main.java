@@ -75,15 +75,16 @@ public class Main {
         //region SAIDA DE DADOS
         int count = 1;
         System.out.println("Dados imóveis:");
+        //Iterando lista de imoveis
         for(Imoveis imoveis : municipio.getImoveisList()){
-            System.out.printf("Dados do #%d imóvel:%n" ,count);
-            System.out.println(imoveis);
+            //Exibindo dados dos imóveis em uma interface
+            JOptionPane.showMessageDialog(null ,String.format("Dados #%d imóvel: %n%s",count,imoveis));
             count++;
         }
-
         //endregion
-
 
         input.close();
     }
+
+
 }
