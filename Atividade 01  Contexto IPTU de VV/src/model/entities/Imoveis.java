@@ -109,15 +109,15 @@ public class Imoveis {
        if(mesesDeAtraso != null){
            return
                    "Nome Do Proprietário: " + nomeDoProprietario + "\n" +
-                           "Imposto: R$" + imposto + "\n" +
-                           "Multa: R$" + calcularMulta() + "\n"+
+                           "Imposto: R$" + String.format("%.2f",imposto) + "\n" +
+                           "Multa: R$" + String.format("%.2f",calcularMulta()) + "\n"+
                            "Meses De Atraso: " + mesesDeAtraso + "\n";
        }
        else//Senão
        {
            return
                    "Nome Do Proprietário: " + nomeDoProprietario + "\n"+
-                           "Imposto: R$" + imposto+"\n";
+                           "Imposto: R$" + String.format("%.2f" ,imposto)+"\n";
        }
     }
 
